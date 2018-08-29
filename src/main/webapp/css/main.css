@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css?family=Cuprum');
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: url('/images/bg.png') repeat;
+
+    color: #ffffff;
+    font-family: Cuprum, sans-serif;
+    font-weight:300;
+    text-align: center;
+    text-decoration: none;
+}
+ header{
+     line-height: 48px;
+     background-color: rgba(87, 87, 87, .2);
+
+ }
+header h1, .wrapper h2{
+
+    text-shadow: 0 1px 1px #2D2020;
+}
+
+
+ .wrapper{
+    margin-top: 80px;
+}
+
+
+.login-form{
+    margin: 20px auto;
+    width: 40%;
+}
+
+.login-form .content {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.login-form .content .input {
+
+    padding: 10px;
+    font-family: Cuprum, sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #9d9e9e;
+    text-shadow: 1px 1px 0 rgba(256,256,256,1.0);
+
+    background: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+    -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.50);
+}
+
+
+.login-form .content .input:hover {
+    background: #dfe9ec;
+    color: #414848;
+}
+
+.login-form .content .input:focus {
+    background: #dfe9ec;
+    color: #414848;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+    -moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.login-form .content a {
+    text-decoration: none;
+}
+.login-form .button {
+
+    padding: 11px 25px;
+    font-family: 'Bree Serif', serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: #fff;
+    text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+
+
+    background: #56c2e1;
+    border: 1px solid #46b3d3;
+    border-radius: 5px;
+    cursor: pointer;
+
+    box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+    -moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+    -webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+
+.login-form label.button{
+    background: #ff744a;
+    border: 1px solid #be4a21;
+}
+
+.login-form label.button:hover {
+    background: #be4a21;
+}
+
+
+.login-form .button:hover {
+    background: #3f9db8;
+    border: 1px solid rgba(256,256,256,0.75);
+
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+.login-form .button:focus {
+    position: relative;
+    bottom: -1px;
+
+    background: #56c2e1;
+
+    box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+    -moz-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+    -webkit-box-shadow: inset 0 1px 6px rgba(256,256,256,0.75);
+}
+
+
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.grid {
+    overflow: hidden;
+    margin: 0;
+    padding: 3em 0 0 0;
+    width: 100%;
+    list-style: none;
+    text-align: center;
+}
+
+/* Common style */
+.grid figure {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+    width: 24%;
+    height: 300px;
+    background: #3085a3;
+    text-align: center;
+    cursor: pointer;
+}
+
+.grid figure img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height:auto;
+    opacity: 0.8;
+}
+
+.grid figure figcaption {
+    padding: 1em;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.25em;
+}
+
+.grid figure figcaption::before,
+.grid figure figcaption::after {
+    pointer-events: none;
+}
+
+.grid figure figcaption,
+.grid figure a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* Anchor will cover the whole item by default */
+/* For some effects it will show as a button */
+.grid figure a {
+    z-index: 1000;
+    text-indent: 200%;
+    white-space: nowrap;
+    font-size: 0;
+    opacity: 0;
+}
+
+.grid figure h2 {
+    word-spacing: -0.15em;
+    font-weight: 300;
+}
+
+.grid figure h2 span {
+    font-weight: 800;
+}
+
+.grid figure h2,
+.grid figure p {
+    margin: 0;
+}
+
+.grid figure p {
+    letter-spacing: 1px;
+    font-size: 68.5%;
+}
+figure.effect-zoe figcaption {
+    top: auto;
+    bottom: 0;
+    padding: 1em;
+    max-width: 90%;
+    height: 2em;
+    background: #fff;
+    color: #3c4a50;
+    transition: transform .65s;
+    transform: translate3d(0,100%,0);
+}
+
+figure.effect-zoe h2 {
+    float: left;
+    font-size: 1.2em;
+}
+
+figure.effect-zoe figcaption > span {
+    float: right;
+}
+
+figure.effect-zoe p {
+    position: absolute;
+    bottom: 8em;
+    padding: 2em;
+    color: #fff;
+    text-shadow: 2px 2px 2px #2D2020;
+    text-transform: none;
+    font-size: 90%;
+    opacity: 0;
+
+}
+
+figure.effect-zoe figcaption > span {
+    transition: transform 0.35s;
+    transform: translate3d(0,200%,0);
+}
+
+figure.effect-zoe figcaption > span::before {
+    display: inline-block;
+    padding: 8px 10px;
+    font-family: 'feathericons';
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-eye::before {
+    content: '\e000';
+}
+
+.icon-paper-clip::before {
+    content: '\e001';
+}
+
+.icon-heart::before {
+    content: '\e024';
+}
+
+figure.effect-zoe h2 {
+    display: inline-block;
+}
+
+figure.effect-zoe:hover figcaption > p {
+    opacity: 1;
+}
+
+figure.effect-zoe:hover figcaption,
+figure.effect-zoe:hover figcaption > span{
+    transform: translate3d(0,0,0);
+}
+
+figure.effect-zoe:hover h2 {
+    transition-delay: 0.05s;
+}
+
+figure.effect-zoe:hover figcaption > span:nth-child(4) {
+    transition-delay: 0.1s;
+}
+
+figure.effect-zoe:hover figcaption > span:nth-child(3) {
+    transition-delay: 0.15s;
+}
+
+figure.effect-zoe:hover figcaption > span:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+
