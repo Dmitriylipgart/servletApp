@@ -6,6 +6,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.Part;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -18,6 +19,7 @@ public abstract class DatabaseController extends HttpServlet {
     Part filePart;
     String fileName;
     InputStream is;
+    String path;
 
 
     void loadFile(HttpServletRequest req) throws ServletException, IOException{
@@ -28,6 +30,8 @@ public abstract class DatabaseController extends HttpServlet {
         filePart = req.getPart("file");
         is = filePart.getInputStream();
         fileName = getSubmittedFileName(filePart);
+        path = req.getSession().getServletContext().getRealPath("/") + File.separator + "files" + File.separator;
+        System.out.println(path);
     }
 
     //        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();

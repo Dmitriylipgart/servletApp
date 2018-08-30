@@ -20,19 +20,19 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
     String description;
     String fileName;
 
-
     InputStream is;
-    String path = "F:\\servletApp\\src\\main\\webapp\\files\\";
+    String path;
 
 
     public FileRecord() {
     }
 
-    public FileRecord(String description, InputStream is, String fileName) {
+    public FileRecord(String description, InputStream is, String fileName, String path) {
         this.file_id = file_id;
         this.description = description;
         this.fileName = fileName;
         this.is = is;
+        this.path = path;
     }
 
     public FileRecord(String file_id) {
@@ -47,7 +47,6 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
         this.description = description;
         this.is = is;
     }
-
     public FileRecord(String description, InputStream is) {
         this.description = description;
         this.is = is;

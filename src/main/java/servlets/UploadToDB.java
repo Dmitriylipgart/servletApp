@@ -20,7 +20,7 @@ public class UploadToDB extends DatabaseController {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         loadFile(req);
-        FileRecord fileRecord = new FileRecord(description, is, fileName);
+        FileRecord fileRecord = new FileRecord(description, is, fileName, path);
         fileRecord.createRecord();
         req.setAttribute("uploadFileResp", "Файл "+ fileName + " уcпешно записан в базу данных " + fileRecord.TABLE_NAME);
         showAllRecords(req);
