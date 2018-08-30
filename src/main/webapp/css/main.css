@@ -171,13 +171,7 @@ header h1, .wrapper h2{
     font-size: 1.25em;
 }
 
-.grid figure figcaption::before,
-.grid figure figcaption::after {
-    pointer-events: none;
-}
-
-.grid figure figcaption,
-.grid figure a {
+.grid figure figcaption{
     position: absolute;
     top: 0;
     left: 0;
@@ -186,13 +180,7 @@ header h1, .wrapper h2{
 
 /* Anchor will cover the whole item by default */
 /* For some effects it will show as a button */
-.grid figure a {
-    z-index: 1000;
-    text-indent: 200%;
-    white-space: nowrap;
-    font-size: 0;
-    opacity: 0;
-}
+
 
 .grid figure h2 {
     word-spacing: -0.15em;
@@ -229,8 +217,12 @@ figure.effect-zoe h2 {
     font-size: 1.2em;
 }
 
-figure.effect-zoe figcaption > span {
+figure.effect-zoe figcaption a {
     float: right;
+    color: #3c4a50;
+    font-size: 1.4em;
+    transition: transform 0.35s;
+    transform: translate3d(0,200%,0);
 }
 
 figure.effect-zoe p {
@@ -245,31 +237,22 @@ figure.effect-zoe p {
 
 }
 
-figure.effect-zoe figcaption > span {
+figure.effect-zoe label{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    z-index: 1000;
+    cursor: pointer;
+    color: #fff;
+
+}
+
+figure.effect-zoe figcaption > a {
     transition: transform 0.35s;
     transform: translate3d(0,200%,0);
 }
 
-figure.effect-zoe figcaption > span::before {
-    display: inline-block;
-    padding: 8px 10px;
-    font-family: 'feathericons';
-    speak: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
 
-.icon-eye::before {
-    content: '\e000';
-}
-
-.icon-paper-clip::before {
-    content: '\e001';
-}
-
-.icon-heart::before {
-    content: '\e024';
-}
 
 figure.effect-zoe h2 {
     display: inline-block;
@@ -280,7 +263,8 @@ figure.effect-zoe:hover figcaption > p {
 }
 
 figure.effect-zoe:hover figcaption,
-figure.effect-zoe:hover figcaption > span{
+figure.effect-zoe:hover > figure.effect-zoe label,
+figure.effect-zoe:hover figcaption > a{
     transform: translate3d(0,0,0);
 }
 
@@ -288,16 +272,11 @@ figure.effect-zoe:hover h2 {
     transition-delay: 0.05s;
 }
 
-figure.effect-zoe:hover figcaption > span:nth-child(4) {
-    transition-delay: 0.1s;
-}
 
-figure.effect-zoe:hover figcaption > span:nth-child(3) {
-    transition-delay: 0.15s;
-}
-
-figure.effect-zoe:hover figcaption > span:nth-child(2) {
+figure.effect-zoe:hover figcaption > a {
     transition-delay: 0.2s;
 }
+
+
 
 

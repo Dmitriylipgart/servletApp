@@ -34,14 +34,17 @@
 
     <c:forEach var="record" items="${records}">
         <figure class="effect-zoe">
+            <form action="delete" method="post" enctype="multipart/form-data">
+                <input type="text" name="file_id"  value="${record.file_id}" style="display: none">
+                <input type="text" name="fileName"  value="${record.fileName}" style="display: none">
+                <input type="submit" id="deleteButton + ${record.file_id}" style="display: none">
+                <label for="deleteButton + ${record.file_id}"><i class="fas fa-times-circle"></i></label>
+            </form>
             <img src="${record.getPathForPage()}" alt="${record.fileName}"/>
             <figcaption>
                 <h2>${record.fileName}</h2>
-                <span class="icon-heart"></span>
-                <span class="icon-eye"></span>
-                <span class="icon-paper-clip"></span>
+                <a href="${record.getPathForPage()}" download><i class="fas fa-arrow-alt-circle-down"></i></a>
                 <p>${record.description}</p>
-                <a href="${record.getPathForPage()}">View more</a>
             </figcaption>
         </figure>
     </c:forEach>
