@@ -28,7 +28,6 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
     }
 
     public FileRecord(String description, InputStream is, String fileName, String path) {
-        this.file_id = file_id;
         this.description = description;
         this.fileName = fileName;
         this.is = is;
@@ -38,18 +37,20 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
     public FileRecord(String file_id) {
         this.file_id = file_id;
     }
-    public FileRecord(String file_id, String fileName) {
+
+    public FileRecord(String file_id, String fileName, String path) {
         this.file_id = file_id;
         this.fileName = fileName;
+        this.path = path;
     }
     public FileRecord(String file_id, String description, InputStream is) {
         this.file_id = file_id;
         this.description = description;
         this.is = is;
     }
-    public FileRecord(String description, InputStream is) {
-        this.description = description;
-        this.is = is;
+
+    public String getPath() {
+        return path;
     }
 
     public String getFile_id() {
@@ -95,7 +96,7 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
 
 
     public String getPathForPage() {
-        return "/files/" + fileName;
+        return "/../files/" + fileName;
     }
 
 
@@ -108,7 +109,7 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
 
         try {
             PreparedStatement statement = connection.prepareStatement(sql);
-            statement.setString(1, file.getPath());
+            statement.setString(1, path);
             statement.setString(2, description);
             statement.setString(3, fileName);
             statement.executeUpdate();

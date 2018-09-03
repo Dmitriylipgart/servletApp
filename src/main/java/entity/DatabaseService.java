@@ -8,7 +8,8 @@ import java.sql.Statement;
 public class DatabaseService {
 
     Connection connection;
-    String homePath = "jdbc:sqlite:F:\\servletApp\\src\\main\\resources\\Test.db";
+    String homePath = "jdbc:sqlite:C:\\Database\\Test.db";
+
     public Connection getConnection() {
         createConnection();
         return connection;
@@ -17,7 +18,7 @@ public class DatabaseService {
         Statement statement=null;
         try  {
 
-            createConnection();
+            if(connection == null){createConnection();}
             statement = connection.createStatement();
             statement.setQueryTimeout(30);  // set timeout to 30
             System.out.println("Connect to database successful");

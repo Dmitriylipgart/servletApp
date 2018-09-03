@@ -28,10 +28,11 @@ public abstract class DatabaseController extends HttpServlet {
         file_id = req.getParameter("file_id");
         description = req.getParameter("description");
         filePart = req.getPart("file");
-        is = filePart.getInputStream();
-        fileName = getSubmittedFileName(filePart);
-        path = req.getSession().getServletContext().getRealPath("/") + File.separator + "files" + File.separator;
-        System.out.println(path);
+        is = (filePart != null)? filePart.getInputStream(): null;
+        fileName = (filePart != null)? getSubmittedFileName(filePart): req.getParameter("fileName");
+        path = req.getSession().getServletContext().getRealPath("/") + ".." + File.separator
+                + "files" + File.separator;
+
     }
 
     //        String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();

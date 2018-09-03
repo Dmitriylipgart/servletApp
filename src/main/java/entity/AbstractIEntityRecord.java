@@ -13,8 +13,8 @@ public abstract class AbstractIEntityRecord<T extends IEntityRecord> implements 
 
     public AbstractIEntityRecord() {
         databaseService= new DatabaseService();
-        statement= databaseService.getStatement();
         connection = databaseService.getConnection();
+        statement= databaseService.getStatement();
     }
 
     @Override
