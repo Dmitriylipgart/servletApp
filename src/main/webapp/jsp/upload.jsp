@@ -13,7 +13,7 @@
 
     </header>
 
-    <form action="../uploadFile" method="post" enctype="multipart/form-data" class="form">
+    <form action="../uploadFile" method="post" enctype="multipart/form-data" class="form upload">
 
         <div class="content">
             <input type="text" name="description" class="input username" placeholder="Описание файла">
