@@ -148,9 +148,9 @@ header h1, .wrapper h2{
     margin: 0;
     width: 24%;
     height: 300px;
-    background: #3085a3;
     text-align: center;
     cursor: pointer;
+    background: #3085a3 center center;
     background-size: cover;
 }
 
@@ -258,6 +258,19 @@ figure:hover figcaption > a {
     transition-delay: 0.2s;
 }
 
+
+@media only screen and (max-width: 640px) {
+    .grid figure {
+        width: 100%;
+        height: 200px;
+        margin-bottom: 10px;
+    }
+
+    form.upload .content  {
+        flex-direction: column;
+        width: 100%;
+    }
+}
 
 
 
