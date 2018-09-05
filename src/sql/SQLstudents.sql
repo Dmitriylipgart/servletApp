@@ -1,14 +1,14 @@
 ﻿-- 1
 SELECT s.first_name, s.last_name 
-  FROM student as s, student_result as sr
-  where s.id = sr.student_id
-  and sr.result > 2
-order by sr.result DESC;
+  FROM student AS s, student_result AS sr
+  WHERE s.id = sr.student_id
+  AND sr.result > 2
+ORDER BY sr.result DESC;
 
 
 -- 2 все сдавшие хотя бы один экзамен на 4 или 5
-SELECT COUNT(DISTINCT s.id) FROM student as s, student_result as sr
-  where s.id = sr.student_id
+SELECT COUNT(DISTINCT s.id) FROM student AS s, student_result AS sr
+  WHERE s.id = sr.student_id
   and sr.result > 3;
 
 -- 2 все сдавшие экзамены только на 4 или 5
@@ -22,31 +22,22 @@ SELECT COUNT(DISTINCT s.id)
   ORDER BY sr.result DESC;
 
 
-SELECT * from student_result
-  
-order by student_id;
 
-SELECT * from exam_result
-order by student_id;
-SELECT * from training_course;
- SELECT * from exam;
-
-SELECT * from techer;
-
+-- 3 Правильно выполнить запрос мешают null в student_result  и отличия в оценках у студента с id 2
 SELECT *
-  from student_result as sr 
-  where NOT EXISTS (
-  SELECT * FROM exam_result as er
-  where er.result = sr.result  
+  from student_result AS sr 
+  WHERE NOT EXISTS (
+  SELECT * FROM exam_result AS er
+  WHERE er.result = sr.result  
   AND sr.student_id = er.student_id
   );
 
  
 -- 4
-SELECT avg(sr.result) from student_result sr 
-  JOIN training_course as tc 
-    on sr.training_course_id = tc.id
-  where tc.name = 'RDBMS' 
+SELECT avg(sr.result) FROM student_result sr 
+  JOIN training_course AS tc 
+    ON sr.training_course_id = tc.id
+  WHERE tc.name = 'RDBMS' 
 ORDER BY tc.id;
 
 
@@ -57,46 +48,46 @@ ORDER BY tc.id;
   поэтому делаю выборку по Athletic, что соответствует training_course_id = 4.
   */
       -- 5.1
-SELECT s.first_name, s.last_name from student as s 
-  where not EXISTS(
-  SELECT sr.student_id from student_result sr 
-  JOIN training_course as tc 
+SELECT s.first_name, s.last_name FROM student AS s 
+  WHERE NOT EXISTS(
+  SELECT sr.student_id FROM student_result sr 
+  JOIN training_course AS tc 
     on sr.training_course_id = tc.id 
-  where tc.name = 'Athletic'
+  WHERE tc.name = 'Athletic'
     and s.id = sr.student_id
   );
     -- 5.2
-SELECT s.first_name, s.last_name from student as s 
+SELECT s.first_name, s.last_name FROM student AS s 
   where s.id not in (
-  SELECT sr.student_id from student_result sr 
-  JOIN training_course as tc 
+  SELECT sr.student_id FROM student_result sr 
+  JOIN training_course AS tc 
     on sr.training_course_id = tc.id 
-  where tc.name = 'Athletic'
+  WHERE tc.name = 'Athletic'
     and s.id = sr.student_id
   );
 
   -- 6 
-  select tc.teacher_id from training_course AS tc
-    group by tc.teacher_id
+  SELECT tc.teacher_id FROM training_course AS tc
+    GROUP BY tc.teacher_id
     HAVING count(tc.name) > 2;
 
   -- 7 
- SELECT er.student_id, s.last_name, count(er.exam_id) FROM exam_result as er
+ SELECT er.student_id, s.last_name, count(er.exam_id) FROM exam_result AS er
   JOIN student AS s ON er.student_id = s.id
-  GROUP by er.student_id, er.exam_id
+  GROUP BY er.student_id, er.exam_id
   HAVING count(er.exam_id) > 1;
 
 
 -- 8
 SELECT s.first_name, s.last_name FROM student AS s
-  JOIN student_result as sr on s.id = sr.student_id
-  GROUP by s.first_name, s.last_name
-  order by sum(sr.result) desc LIMIT 5;
+  JOIN student_result AS sr on s.id = sr.student_id
+  GROUP BY s.first_name, s.last_name
+  ORDER BY sum(sr.result) desc LIMIT 5;
 
   -- 9
-SELECT t.last_name from student_result sr 
-  JOIN training_course as tc 
+SELECT t.last_name FROM student_result sr 
+  JOIN training_course AS tc 
     on sr.training_course_id = tc.id
-  JOIN techer as t where tc.teacher_id = t.id
-GROUP by t.last_name
-order by sum(sr.result) desc LIMIT 1;
+  JOIN techer AS t where tc.teacher_id = t.id
+GROUP BY t.last_name
+ORDER BY sum(sr.result) desc LIMIT 1;
