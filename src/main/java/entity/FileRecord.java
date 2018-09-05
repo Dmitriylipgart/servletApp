@@ -116,22 +116,6 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
         } catch (Exception e) {}
     }
 
-    public void update() {
-        String sql = "Update " + getTableName() + " set file_path = ?, description = ? where file_id = " + file_id;
-        setFile(is);
-        try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, file.getPath());
-            preparedStatement.setString(2, description);
-            preparedStatement.executeUpdate();
-            is.close();
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 
     public void delete(){
         String sql = "Delete from " + getTableName() + " where file_id = ?";
@@ -177,8 +161,6 @@ public class FileRecord extends AbstractIEntityRecord<FileRecord> {
         }
         return fileRecord;
     }
-
-
 
 
     public File writeToFile(InputStream is) {

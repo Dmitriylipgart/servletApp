@@ -9,6 +9,5 @@ public interface IEntityRecord<T extends IEntityRecord>{
     void createRecord();
     List<T> readAll() throws SQLException;
     T read();
-    void update();
     void delete();
 }
